@@ -28,6 +28,7 @@
                 dense
                 v-model="gBase"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -37,6 +38,7 @@
                 dense
                 v-model="gPow"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
             </div>
             <!-- massa 1 -->
@@ -48,6 +50,7 @@
                 dense
                 v-model="m1Base"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -57,6 +60,7 @@
                 dense
                 v-model="m1Pow"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
             </div>
             <!-- massa 2 -->
@@ -68,6 +72,7 @@
                 dense
                 v-model="m2Base"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -77,6 +82,7 @@
                 dense
                 v-model="m2Pow"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
             </div>
             <!-- distancia -->
@@ -88,6 +94,7 @@
                 dense
                 v-model="dBase"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -97,13 +104,14 @@
                 dense
                 v-model="dPow"
                 type="number"
+                color="#5a3e98"
               ></v-text-field>
             </div>
             <!-- btn calcular -->
             <v-btn
               class="botao-calcular mb-4"
               @click="calcular()"
-              color="#6200B8"
+              color="#5a3e98"
               >Calcular</v-btn
             >
             <!-- btn limpar -->
@@ -112,7 +120,7 @@
               outlined
               class="botao-limpar mb-7"
               @click="limpar()"
-              color="#6200B8"
+              color="#5a3e98"
               >Limpar</v-btn
             >
             <!-- resultado -->
@@ -124,6 +132,7 @@
                 dense
                 v-model="f"
                 type="string"
+                color="#5a3e98"
               ></v-text-field>
             </div>
           </div>
@@ -200,6 +209,7 @@ export default {
   }
 }
 .titulo {
+  text-align: center;
   margin-top: 12px;
   margin-bottom: 26px;
 }

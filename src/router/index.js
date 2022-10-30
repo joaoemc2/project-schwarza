@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import AstronomiaView from '../views/AstronomiaView.vue'
+import ModernaView from '../views/ModernaView.vue'
 import CategoriasView from '../views/CategoriasView.vue'
 
 Vue.use(VueRouter)
@@ -12,9 +12,9 @@ const routes = [
     component: CategoriasView
   },
   {
-    path: '/astronomia',
-    name: 'astronomia',
-    component: AstronomiaView
+    path: '/moderna',
+    name: 'moderna',
+    component: ModernaView
   },
 ]
 

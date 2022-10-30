@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar class="main" dense color="deep-purple accent-4">
+    <v-toolbar class="main" dense color="#5a3e98">
 
       <v-toolbar-title class="title" >Project Schwarzschild</v-toolbar-title>
 

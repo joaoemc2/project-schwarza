@@ -2,7 +2,7 @@
   <div class="main-container">
     <router-link class="router" to="/">
       <p>
-        <v-icon class="icon" small color="deep-purple accent-4"
+        <v-icon class="icon" small color="#5a3e98"
           >mdi-arrow-u-left-bottom</v-icon
         >Voltar
       </p>

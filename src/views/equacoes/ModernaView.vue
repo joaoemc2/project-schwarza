@@ -1,18 +1,19 @@
 <template>
   <div class="main">
-    <voltar-comp/>
-    <h3 class="mb-6">Física Moderna</h3>
+    <voltar-comp />
+    <h3 class="mb-0">Física Moderna</h3>
+    <div class="underline mb-6"></div>
     <v-select
-    class="select"
+      class="select"
       @change="selecionarEquacao(select)"
       v-model="select"
       :items="items"
       label="Selecione..."
       dense
-      color="#5a3e98"
+      color="#6C63FF"
     ></v-select>
     <div v-if="controle == 0">
-      <selecione-eq-comp class="selecione"/>
+      <selecione-eq-comp class="selecione" />
     </div>
     <div v-if="controle == 1">
       <gravitacao-newton-eq />
@@ -21,16 +22,16 @@
 </template>
 
 <script>
-import VoltarComp from "../components/VoltarComp.vue";
-import GravitacaoNewtonEq from "../components/equacoes/GravitacaoNewtonEq.vue";
-import SelecioneEqComp from "../components/SelecioneEqComp.vue";
+import VoltarComp from "@/components/VoltarComp.vue";
+import SelecioneEqComp from "@/components/SelecioneEqComp.vue";
+import GravitacaoNewtonEq from "@/components/equacoes/fisica_moderna/GravitacaoNewtonEq.vue";
 
 export default {
-  name: "AstronomiaView",
+  name: "ModernaView",
   components: {
     VoltarComp,
     GravitacaoNewtonEq,
-    SelecioneEqComp
+    SelecioneEqComp,
   },
   data() {
     return {
@@ -54,13 +55,18 @@ export default {
 };
 </script>
 <style scoped>
-.main{
+.main {
   padding: 0px 16px;
 }
-.select{
+.select {
   max-width: 390px;
 }
-.selecione{
-  margin-top: 80px
+.selecione {
+  margin-top: 80px;
+}
+.underline {
+  background-color: #6C63FF;
+  height: 2px;
+  width: 40px;
 }
 </style>

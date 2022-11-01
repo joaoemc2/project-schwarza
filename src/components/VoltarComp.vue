@@ -1,8 +1,8 @@
 <template>
   <div class="main-container">
-    <router-link class="router" to="/">
+    <router-link class="router" to="/categorias">
       <p>
-        <v-icon class="icon" small color="#5a3e98"
+        <v-icon class="icon" small color="#6C63FF"
           >mdi-arrow-u-left-bottom</v-icon
         >Voltar
       </p>
@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .main-container {
   padding: 0;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 .router{
     text-decoration: none;

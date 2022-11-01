@@ -1,15 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ModernaView from '../views/ModernaView.vue'
+import GetStartingView from '../views/GetStartingView.vue'
 import CategoriasView from '../views/CategoriasView.vue'
+import ModernaView from '../views/equacoes/ModernaView.vue'
+import MecanicaView from '../views/equacoes/MecanicaView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'getstarting',
+    component: GetStartingView
+  },
+  {
+    path: '/categorias',
     name: 'categorias',
     component: CategoriasView
+  },
+  {
+    path: '/mecanica',
+    name: 'mecanica',
+    component: MecanicaView
   },
   {
     path: '/moderna',

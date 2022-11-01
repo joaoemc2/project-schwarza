@@ -18,10 +18,13 @@
 
       <v-card-actions>
         <router-link class="router" :to="link">
-          <v-btn class="btn" elevation="0" color="#5a3e98">
+          <v-btn class="btn" elevation="0" color="#6C63FF">
             ver equações
           </v-btn>
         </router-link>
+        <v-spacer/>
+        <p class="numero-equacoes mb-0 mr-2">{{numeroEquacoes}} </p>
+        <p class="texto-numero-equacoes mb-0 mr-2">equações</p>
       </v-card-actions>
     </v-card>
   </div>
@@ -34,12 +37,13 @@ export default {
   components: {
     
   },
-  props:{
+  props: {
     titulo: String,
     tag: String,
     desc: String,
     img: String,
-    link: String
+    link: String,
+    numeroEquacoes: Number,
   },
   data() {
     return {
@@ -53,6 +57,9 @@ export default {
 .main {
   padding: 0px !important;
 }
+.text-overline{
+  color: #6C63FF;
+}
 .titulo{
   margin-bottom: 8px !important;
 }
@@ -62,5 +69,11 @@ export default {
 .btn {
   color: #fff;
 }
-
+.numero-equacoes{
+  font-size: 14px !important;
+  color: #6C63FF;
+}
+.texto-numero-equacoes{
+  font-size: 14px !important;
+}
 </style>

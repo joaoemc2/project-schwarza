@@ -2,16 +2,15 @@
   <div class="main d-flex">
     <v-row class="row-container">
       <v-col class="col-container">
-        <h2 class="titulo">Gravitação de Newton</h2>
+        <h2 class="titulo">Função horária da posição para o MRUV</h2>
         <p class="sobre">
-          "A Lei da Gravitação Universal estabelece que, se dois corpos possuem
-          massa, eles sofrem a ação de uma força atrativa proporcional ao
-          produto de suas massas e inversamente proporcional a sua distância."
+          "A função horária da posição é uma equação matemática que fornece a
+          localização do corpo em qualquer instante do movimento"
         </p>
         <div>
           <img
             class="equacao-img"
-            src="@/assets/img_equacao_comp/GravitacaoNewton.png"
+            src="@/assets/img_equacao_comp/FuncaoHorariaDaPosicaoMruv.png"
             alt=""
           />
         </div>
@@ -19,16 +18,16 @@
       <v-col class="col-container">
         <div class="equacao d-flex">
           <div class="text-fields">
-            <!-- const. gravitacional -->
+            <!-- posição inicial -->
             <div class="valor-pow-container">
               <v-text-field
                 class="valor"
-                label="Const. gravitacional"
+                :label="label1"
                 outlined
                 dense
-                v-model="gBase"
+                v-model="sBase"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -36,21 +35,21 @@
                 label="Potência"
                 outlined
                 dense
-                v-model="gPow"
+                v-model="sPow"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
             </div>
-            <!-- massa 1 -->
+            <!-- velocidade inicial-->
             <div class="valor-pow-container">
               <v-text-field
                 class="valor"
-                label="Massa 1° corpo (kg)"
+                :label="label2"
                 outlined
                 dense
-                v-model="m1Base"
+                v-model="vBase"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -58,21 +57,21 @@
                 label="Potência"
                 outlined
                 dense
-                v-model="m1Pow"
+                v-model="vPow"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
             </div>
-            <!-- massa 2 -->
+            <!-- instante "t"-->
             <div class="valor-pow-container">
               <v-text-field
                 class="valor"
-                label="Massa 2° corpo (kg)"
+                :label="label3"
                 outlined
                 dense
-                v-model="m2Base"
+                v-model="tBase"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -80,21 +79,21 @@
                 label="Potencia"
                 outlined
                 dense
-                v-model="m2Pow"
+                v-model="tPow"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
             </div>
-            <!-- distancia -->
+            <!-- aceleração-->
             <div class="valor-pow-container">
               <v-text-field
                 class="valor"
-                label="Distancia (m)"
+                :label="label4"
                 outlined
                 dense
-                v-model="dBase"
+                v-model="aBase"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
               <p class="x10">x10^</p>
               <v-text-field
@@ -102,37 +101,37 @@
                 label="Potencia"
                 outlined
                 dense
-                v-model="dPow"
+                v-model="aPow"
                 type="number"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
             </div>
             <!-- btn calcular -->
             <v-btn
               class="botao-calcular mb-4"
               @click="calcular()"
-              color="#5a3e98"
+              color="#6C63FF"
               >Calcular</v-btn
             >
             <!-- btn limpar -->
             <v-btn
-              v-if="m1Base || m2Base || dBase"
+              v-if="sBase || vBase || tBase || aBase"
               outlined
               class="botao-limpar mb-7"
               @click="limpar()"
-              color="#5a3e98"
+              color="#6C63FF"
               >Limpar</v-btn
             >
             <!-- resultado -->
             <div class="d-flex">
               <v-text-field
-                label="Força de atração"
+              :label="labelResultado"
                 readonly
                 outlined
                 dense
-                v-model="f"
+                v-model="total"
                 type="string"
-                color="#5a3e98"
+                color="#6C63FF"
               ></v-text-field>
             </div>
           </div>
@@ -141,60 +140,69 @@
     </v-row>
   </div>
 </template>
-
-<script>
+  
+  <script>
 export default {
   name: "GravitacaoNewtonEq",
   data() {
     return {
       // resultado
-      f: 0,
-      // const. gravitacional
-      gBase: 6.67,
-      gPow: -11,
-      gTotal: 0,
-      // massa 1
-      m1Base: null,
-      m1Pow: 0,
-      m1Total: 0,
-      // massa 2
-      m2Base: null,
-      m2Pow: 0,
-      m2Total: 0,
-      // distancia
-      dBase: null,
-      dPow: 0,
-      dTotal: 0,
+      labelResultado: "Resultado",
+      total: 0,
+      // posição inicial
+      label1: "Posição Inicial",
+      sBase: null,
+      sPow: 0,
+      sTotal: 0,
+      // velocidade inicial
+      label2: "Velocidade Inicial",
+      vBase: null,
+      vPow: 0,
+      vTotal: 0,
+      // instante"t"
+      label3: 'Instante "t"',
+      tBase: null,
+      tPow: 0,
+      tTotal: 0,
+      // aceleração
+      label4: "Aceleração",
+      aBase: null,
+      aPow: 0,
+      aTotal: 0,
     };
   },
   methods: {
     calcular() {
-      this.gTotal = this.gBase * Math.pow(10, this.gPow);
-      this.m1Total = this.m1Base * Math.pow(10, this.m1Pow);
-      this.m2Total = this.m2Base * Math.pow(10, this.m2Pow);
-      this.dTotal = this.dBase * Math.pow(10, this.dPow);
-      this.f = (this.gTotal * ((this.m1Total * this.m2Total) / Math.pow(this.dTotal, 2)));
-      this.f = this.f.toExponential(2) + " N";
+      // junção potencia
+      this.sTotal = this.sBase * Math.pow(10, this.sPow);
+      this.vTotal = this.vBase * Math.pow(10, this.vPow);
+      this.tTotal = this.tBase * Math.pow(10, this.tPow);
+      this.aTotal = this.aBase * Math.pow(10, this.aPow);
+      //resultado
+      this.total =
+        this.sTotal +
+        this.vTotal * this.tTotal +
+        (this.aTotal * Math.pow(this.tTotal, 2)) / 2;
     },
     limpar() {
-      this.f = 0;
-      this.gBase = 6.67;
-      this.gPow = -11;
-      this.gTotal = 0;
-      this.m1Base = null;
-      this.m1Pow = 0;
-      this.m1Total = 0;
-      this.m2Base = null;
-      this.m2Pow = 0;
-      this.m2Total = 0;
-      this.dBase = null;
-      this.dPow = 0;
-      this.dTotal = 0;
+      this.total = 0;
+      this.sBase = null;
+      this.sPow = 0;
+      this.sTotal = 0;
+      this.vBase = null;
+      this.vPow = 0;
+      this.vTotal = 0;
+      this.tBase = null;
+      this.tPow = 0;
+      this.tTotal = 0;
+      this.aBase = null;
+      this.aPow = 0;
+      this.aTotal = 0;
     },
   },
 };
 </script>
-<style scoped>
+  <style scoped>
 .main {
   flex-direction: column;
   justify-content: center;
@@ -220,6 +228,7 @@ export default {
 .equacao-img {
   width: 360px;
   margin-bottom: 26px;
+  padding: 0 16px;
 }
 .equacao {
   display: flex;
@@ -250,3 +259,4 @@ export default {
   width: 100px;
 }
 </style>
+  

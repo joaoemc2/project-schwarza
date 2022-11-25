@@ -45,7 +45,7 @@ export default {
           desc: "Fenômenos que são decorrentes dos movimentos dos corpos.",
           src: require("@/assets/img_cards/mecanica.png"),
           link: "/mecanica",
-          numeroEquacoes: 0,
+          numeroEquacoes: 1,
         },
         {
           id: 1,

@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <nav-bar-comp />
-    <router-view class="router"/>
-    <!-- <aviso-comp :texto="textoAviso"/> -->
+      <router-view class="router" />
+       <!-- <aviso-comp :texto="textoAviso" /> -->
     <footer-comp />
   </v-app>
 </template>
@@ -21,20 +21,23 @@ export default {
   },
   data() {
     return {
-      textoAviso: "Aplicação em desenvolvimento... Fique a vontade para dar seu feedback ou sugerir melhorias.",
+      textoAviso:
+        "Aplicação em desenvolvimento... Fique a vontade para dar seu feedback ou sugerir melhorias.",
     };
   },
 };
 </script>
 <style scoped>
-.router{
+.router {
   margin-bottom: 0px;
   min-height: 90vh;
 }
-@media(min-width: 900px){
-  .router{
+@media (min-width: 900px) {
+  .router {
     min-height: 80vh;
+  }
 }
-}
+@media (min-width: 1920px){
 
+}
 </style>
